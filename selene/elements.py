@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import warnings
+import logging
 from _ast import Tuple, List
 
 import sys
@@ -54,6 +55,8 @@ try:
     from functools import lru_cache
 except ImportError:
     from backports.functools_lru_cache import lru_cache
+
+logger = logging.getLogger("Selene Logger")
 
 
 # todo: consider renaming/refactoring to WebDriverWebElementLocator...
@@ -398,6 +401,7 @@ class SeleneElement(with_metaclass(DelegatingMeta, IWebElement)):
         return self
 
     def set(self, new_text_value):
+        logger.info(f"Set value - {new_text_value}")
 
         def clear_and_send_keys(webelement):
             webelement.clear()
