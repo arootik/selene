@@ -53,6 +53,8 @@ def extend(obj, cls, *init_args, **init_kwargs):
 
 
 def take_screenshot(webdriver, path=None, filename=None):
+    if not selene.config.take_screenshots:
+        return
     if not path:
         path = selene.config.reports_folder
     if not filename:

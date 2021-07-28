@@ -52,5 +52,6 @@ counter = itertools.count(start=int(round(time.time() * 1000)))
 
 _default_folder = os.path.join(os.path.expanduser('~'), '.selene', 'screenshots', str(next(counter)))
 reports_folder = env(SELENE_REPORTS_FOLDER, _default_folder)
+take_screenshots = False
 
 desired_capabilities = None

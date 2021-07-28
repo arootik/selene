@@ -92,6 +92,8 @@ _latest_screenshot = NoneObject("selene.browser._latest_screenshot")
 
 
 def take_screenshot(path=None, filename=None):
+    if not selene.config.take_screenshots:
+        return
     if not path:
         path = selene.config.reports_folder
     if not filename:
