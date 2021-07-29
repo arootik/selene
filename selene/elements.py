@@ -233,6 +233,8 @@ def _wait_with_screenshot(webdriver, entity, condition, timeout=None, polling=No
             screenshot = helpers.take_screenshot(webdriver, )
             msg = '''{original_msg}
                 screenshot: file://{screenshot}'''.format(original_msg=e.msg, screenshot=screenshot)
+        else:
+            msg = "Screenshots was disabled"
         raise TimeoutException(msg, e.screen, e.stacktrace)
 
 
